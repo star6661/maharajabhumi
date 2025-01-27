@@ -1,0 +1,286 @@
+/* ! Global */
+:root {
+    --left-bg: rgb(43 45 93);
+    --right-bg: rgb(96 48 218);
+    --field-bg: rgba(255, 255, 255, 0.829);
+    --font: Arial, Helvetica, sans-serif;
+    --field-color: black;
+    /* --field-color: rgb(142, 142, 142); */
+    --field-placeholder-color: rgb(157 149 209);
+    --submit-bg: rgb(242 157 33);
+    --submit-bg-hover: rgb(114, 78, 23);
+    --submit-color-hover: rgb(246, 195, 255);
+    --submit-color: rgb(73, 52, 77);
+    --field-font-size: 1.2em;
+    --error-color: #dc3545;
+    --input-bg-color: transparent;
+    --input-color: black;
+}
+
+body {
+    margin: 0px;
+    font-family: var(--font);
+}
+body main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* ! Left */
+@media only screen and (max-width: 768px) {
+    body main .left {
+        display: none;
+    }
+    body main .right {
+        width: 100vw;
+    }
+    body main .right .wrapperForm {
+        width: 90%;
+        height: 85%;
+    }
+    .right .wrapperFields .field:nth-child(2) {
+        margin-left: 0;
+        padding: 20px;
+    }
+    .right .wrapperFields .field:nth-child(2) label:first-child {
+        display: none;
+    }
+}
+main .left {
+    width: 50%;
+    height: 100%;
+    background-color: var(--left-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+main .left img {
+    width: 70%;
+}
+
+/* ! Right */
+main .right {
+    width: 50%;
+    height: 100%;
+    background-color: var(--right-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapperForm {
+    width: 70%;
+    height: 70%;
+    display: flex;
+    transition: all ease-out 0.3s;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.wrapperForm .header h1 {
+    font-weight: 900;
+    color: var(--submit-bg);
+    font-size: xx-large;
+}
+
+.wrapperForm form .field {
+    background-color: var(--field-bg);
+    color: var(--field-color);
+    padding: 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 10px;
+}
+.wrapperForm form .field:nth-child(2) {
+    margin-top: 10px;
+}
+.wrapperForm form .field label i {
+    font-size: calc(var(--field-font-size) * 1.2);
+    color: var(--field-placeholder-color);
+    transition: all ease-out 0.3s;
+}
+.wrapperForm form .field label i.labelActive {
+    color: var(--input-color);
+}
+.wrapperForm form .field input,
+.wrapperForm form .field textarea,
+.wrapperForm form .field select {
+    background-color: var(--input-bg-color);
+    color: var(--input-color);
+    margin-left: 10px;
+    border: none;
+    outline: none;
+    height: 1.3rem;
+    font-size: var(--field-font-size) rem;
+    width: 80%;
+}
+.wrapperForm form .field select option {
+    color: black;
+    background-color: var(--field-bg);
+}
+*::placeholder {
+    color: var(--field-placeholder-color);
+}
+.wrapperForm form .field input[type="radio"] {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: max-content !important;
+    transform: scale(1.3);
+}
+.labelRadio {
+    transition: all ease-out 0.3s;
+    color: var(--field-placeholder-color);
+}
+.wrapperFields {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+}
+.label-radio-checked {
+    color: var(--input-color);
+}
+/* .wrapperFields .field {
+    width: 50%;
+} */
+.wrapperFields .field:nth-child(2) {
+    margin-top: 10px !important;
+    margin-left: 20px;
+    width: 30%;
+}
+.wrapperFields:nth-of-type(4) .field:nth-child(2) {
+    width: 40% !important;
+}
+.wrapperForm form .info {
+    color: var(--left-bg);
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+.wrapperForm form .info * {
+    color: var(--left-bg);
+    margin-left: 5px;
+    transition: all ease-out 0.3s;
+}
+.wrapperForm form .info a:hover {
+    color: var(--field-color);
+}
+*:focus::-webkit-input-placeholder {
+    opacity: 0;
+}
+*:focus::-moz-placeholder {
+    opacity: 0;
+}
+*:-moz-placeholder {
+    opacity: 0;
+}
+.wrapperForm form .button {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: row;
+    margin-top: 20px;
+}
+.wrapperForm form .button button:nth-child(1) {
+    font-size: large;
+    padding: 15px;
+    font-weight: bold;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: none;
+    border-radius: 50px;
+    color: var(--submit-bg);
+    cursor: pointer;
+    transition: all ease-out 0.3s;
+    border: 2px solid var(--submit-bg);
+    background: transparent;
+}
+.wrapperForm form .button button:nth-child(2) {
+    font-size: large;
+    padding: 15px;
+    font-weight: bold;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: none;
+    border-radius: 50px;
+    background: var(--submit-bg);
+    color: var(--submit-color);
+    cursor: pointer;
+    transition: all ease-out 0.3s;
+    margin-left: 20px;
+    border: 2px solid var(--submit-bg);
+}
+.wrapperForm form .button button:hover {
+    border: 2px solid var(--submit-color-hover);
+    background: var(--submit-bg-hover);
+    color: var(--submit-color-hover);
+    box-sizing: border-box;
+    box-shadow: inset;
+}
+.wrapperForm form .is-invalid {
+    border: 2px solid var(--error-color);
+    box-shadow: 0px 0px 10px var(--error-color);
+    color: var(--error-color);
+}
+
+.alert {
+    position: relative;
+    /* padding: 0.75rem 1.25rem; */
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+
+.error-invalid {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 999; 
+  }
+  .success-message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 1000; 
+  }
+  
+  .success-message .checkmark {
+    font-size: 50px;
+    color: green;
+    animation: pop 0.5s ease;
+  }
+  
+  .success-message .text {
+    font-size: 20px;
+    color: green;
+    margin-top: 10px;
+  }
+  
